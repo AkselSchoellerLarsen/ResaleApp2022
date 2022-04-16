@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Resale</string>
+    <string name="action_login">Login</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="catalog_fragment_label">Catalog Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="catalog_fragment_error"></string>
+    <string name="login_fragment_error"></string>
+    <string name="login_fragment_label">Login</string>
+    <string name="action_logout">Logout</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="item_fragment_label">Item</string>
+    <string name="create_item">Create Item</string>
+    <string name="cancel">Cancel</string>
+</resources>

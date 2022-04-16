@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/textview_list_item_id"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="This should not be seen"
+        android:inputType="number"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/textview_list_item_title"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="This should not be seen"/>
+    <TextView
+        android:id="@+id/textview_list_item_description"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="This should not be seen"/>
+    <TextView
+        android:id="@+id/textview_list_item_price"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="This should not be seen"
+        android:inputType="number"/>
+    <TextView
+        android:id="@+id/textview_list_item_seller"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="This should not be seen"/>
+    <TextView
+        android:id="@+id/textview_list_item_date"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="This should not be seen"/>
+    <ImageView
+        android:id="@+id/imageView_list_item_picture"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:src="@drawable/error"/>
+</LinearLayout>

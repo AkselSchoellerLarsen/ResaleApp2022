@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/CatalogFragment">
+
+    <action
+        android:id="@+id/action_Main_to_LoginFragment"
+        app:destination="@id/LoginFragment" />
+
+    <fragment
+        android:id="@+id/CatalogFragment"
+        android:name="com.example.resale.CatalogFragment"
+        android:label="@string/catalog_fragment_label"
+        tools:layout="@layout/fragment_catalog">
+
+        <action
+            android:id="@+id/action_CatalogFragment_to_ItemFragment"
+            app:destination="@id/ItemFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/LoginFragment"
+        android:name="com.example.resale.accounts.LoginFragment"
+        android:label="@string/login_fragment_label"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_LoginFragment_to_CatalogFragment"
+            app:destination="@id/CatalogFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ItemFragment"
+        android:name="com.example.resale.ItemFragment"
+        android:label="@string/item_fragment_label"
+        tools:layout="@layout/fragment_item">
+
+        <argument
+            android:name="item_id"
+            app:argType="integer"/>
+        <argument
+            android:name="item_title"
+            app:argType="string"/>
+        <argument
+            android:name="item_description"
+            app:argType="string"/>
+        <argument
+            android:name="item_price"
+            app:argType="integer"/>
+        <argument
+            android:name="item_seller"
+            app:argType="string"/>
+        <argument
+            android:name="item_date"
+            app:argType="integer"/>
+        <argument
+            android:name="item_pictureUrl"
+            app:argType="string"/>
+
+        <action
+            android:id="@+id/action_ItemFragment_to_CatalogFragment"
+            app:destination="@id/CatalogFragment" />
+
+    </fragment>
+</navigation>

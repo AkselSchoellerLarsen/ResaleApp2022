@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "898037922425",
+    "project_id": "sacred-bridge-280413",
+    "storage_bucket": "sacred-bridge-280413.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898037922425:android:30f082b95e6cd7d58372a8",
+        "android_client_info": {
+          "package_name": "com.example.resale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "898037922425-c6s7lo73tvnkbg3469csvc0bb8pco31q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAez91E_36xqQxEOkF4JA4UdRzX0heoFzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "898037922425-c6s7lo73tvnkbg3469csvc0bb8pco31q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
