@@ -14,6 +14,8 @@ import com.example.resale.models.Adapter
 import com.example.resale.models.Item
 import com.example.resale.models.ItemViewModel
 import com.example.resale.util.DateConverter
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class ItemFragment : Fragment() {
 
@@ -49,6 +51,9 @@ class ItemFragment : Fragment() {
         binding.textViewHiddenDate.setText(item.date.toString())
         binding.editTextPictureUrl.setText(item.pictureUrl)
 
+        binding.buttonItemDelete.setVisibility(isOwner(item.seller))
+        binding.buttonItemUpdate.setVisibility(isOwner(item.seller))
+
         binding.buttonItemDelete.setOnClickListener {
             itemViewModel.delete(item.id)
             findNavController().popBackStack()
@@ -71,5 +76,12 @@ class ItemFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun isOwner(owner: String) : Int {
+        if(Firebase.auth.currentUser?.email == owner) {
+            return View.VISIBLE
+        }
+        return View.GONE
     }
 }

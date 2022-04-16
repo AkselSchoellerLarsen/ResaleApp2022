@@ -1,22 +1,20 @@
 package com.example.resale.models
 
-import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.os.AsyncTask
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.graphics.drawable.toDrawable
+import androidx.core.graphics.drawable.toIcon
+import androidx.core.graphics.scale
 import androidx.recyclerview.widget.RecyclerView
 import com.example.resale.R
 import com.example.resale.util.DateConverter
-import retrofit2.http.Url
-import java.lang.Exception
 import java.net.URL
-import java.net.URLConnection
 
 class ItemAdapter(
     private val dataSet: List<Item>,
@@ -38,17 +36,38 @@ class ItemAdapter(
         viewHolder.textViewSeller.text = dataSet[position].seller
         viewHolder.textViewDate.text = DateConverter.unixDateToJavaDate(dataSet[position].date).toString()
 
-        try {
-            val url = URL(dataSet[position].pictureUrl)
-            val image = BitmapFactory.decodeStream(url.openConnection().getInputStream())
+        var image: Bitmap? = null
+        val imageThread = Thread {
+            image = tryGetImage(dataSet[position].pictureUrl)
+        }
+        imageThread.start()
+
+        while(imageThread.isAlive) {
+            Thread.sleep(10)
+        }
+
+        if(image != null) {
             viewHolder.imageViewPicture.setImageBitmap(image)
-        } catch (e: Exception) {
-            //Ignore
-        } finally {
-            if(viewHolder.imageViewPicture.drawable == null) {
-                viewHolder.imageViewPicture.setImageResource(R.drawable.error)
+        } else {
+            viewHolder.imageViewPicture.setImageResource(R.drawable.error)
+        }
+    }
+    private fun tryGetImage(stringUrl: String?) : Bitmap? {
+        if (stringUrl != null && stringUrl != "") {
+            try {
+                val properUrl = URL(stringUrl)
+                return BitmapFactory.decodeStream(properUrl.openConnection().getInputStream())
+            } catch (e: Exception) {
+                Log.d(
+                    "TagNotUsedByOthers",
+                    "Image from URL \n" +
+                            "\"" + stringUrl + "\"\n" +
+                            " could not be loaded because the following exception was thrown:\n" +
+                            "$e"
+                )
             }
         }
+        return null
     }
 
     override fun getItemCount() = dataSet.size

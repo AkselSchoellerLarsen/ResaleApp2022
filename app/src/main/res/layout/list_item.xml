@@ -34,6 +34,6 @@
         android:text="This should not be seen"/>
     <ImageView
         android:id="@+id/imageView_list_item_picture"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:src="@drawable/error"/>
+        android:layout_width="@dimen/imageView_item_picture_width"
+        android:layout_height="@dimen/imageView_item_picture_height" />
 </LinearLayout>

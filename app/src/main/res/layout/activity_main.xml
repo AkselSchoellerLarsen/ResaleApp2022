@@ -27,7 +27,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/btn_plus" />
+        app:srcCompat="@android:drawable/ic_menu_send" />
 
     <include layout="@layout/content_main" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
