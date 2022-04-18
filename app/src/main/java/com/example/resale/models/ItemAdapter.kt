@@ -8,9 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.graphics.drawable.toDrawable
-import androidx.core.graphics.drawable.toIcon
-import androidx.core.graphics.scale
 import androidx.recyclerview.widget.RecyclerView
 import com.example.resale.R
 import com.example.resale.util.DateConverter

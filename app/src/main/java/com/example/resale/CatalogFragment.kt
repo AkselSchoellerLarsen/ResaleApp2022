@@ -23,7 +23,7 @@ class CatalogFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentCatalogBinding.inflate(inflater, container, false)
         return binding.root
@@ -35,7 +35,7 @@ class CatalogFragment : Fragment() {
         itemViewModel.itemsLiveData.observe(viewLifecycleOwner) { rawItems ->
             binding.recyclerView.visibility = if(rawItems == null) View.GONE else View.VISIBLE
             if(rawItems != null) {
-                var items: List<Item> = filterAndSort(rawItems)
+                val items: List<Item> = filterAndSort(rawItems)
 
                 val adapter = ItemAdapter(items) { position ->
                     val pictureUrl: String = if(items[position].pictureUrl == null) ""
@@ -63,17 +63,17 @@ class CatalogFragment : Fragment() {
 
         itemViewModel.reload()
 
-        binding.swiperefresh.setOnRefreshListener {
+        binding.swipeRefresh.setOnRefreshListener {
             itemViewModel.reload()
-            binding.swiperefresh.isRefreshing = false
+            binding.swipeRefresh.isRefreshing = false
         }
     }
 
-    fun filterAndSort(rawItems: List<Item>) : List<Item> {
+    private fun filterAndSort(rawItems: List<Item>) : List<Item> {
         val filteredItems: List<Item> = filterItems(rawItems)
         return sortItems(filteredItems)
     }
-    fun filterItems(input: List<Item>) : List<Item> {
+    private fun filterItems(input: List<Item>) : List<Item> {
         val searchTerm: String = binding.editTextCatalogFilter.text.toString()
         return input.filter { item ->
             if(item.title.contains(searchTerm) || item.description.contains(searchTerm)) {
@@ -82,7 +82,7 @@ class CatalogFragment : Fragment() {
             return@filter false
         }
     }
-    fun sortItems(input: List<Item>) : List<Item> {
+    private fun sortItems(input: List<Item>) : List<Item> {
         if(binding.radioCatalogPrice.isChecked) {
             if(binding.radioCatalogAscending.isChecked) {
                 return input.sortedBy { item ->
@@ -104,7 +104,6 @@ class CatalogFragment : Fragment() {
                 }
             }
         }
-        return input // Should not ever happen, but this is ensured in the layout file, so the compiler obviously doesn't understand.
     }
 
     override fun onDestroyView() {

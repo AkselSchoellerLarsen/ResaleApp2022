@@ -8,7 +8,7 @@ class ItemViewModel : ViewModel() {
     private val repository = ItemRepository()
     val itemsLiveData: LiveData<List<Item>> = repository.itemsLiveData
     val errorMessageLiveData: LiveData<String> = repository.errorMessageLiveData
-    val updateMessageLiveData: LiveData<String> = repository.updateMessageLiveData
+    //val updateMessageLiveData: LiveData<String> = repository.updateMessageLiveData
 
     init {
         reload()
@@ -18,7 +18,7 @@ class ItemViewModel : ViewModel() {
         repository.getItems()
     }
 
-    @Deprecated("Doesn\'s work for some reason.")
+    @Deprecated("Doesn't work for some reason.")
     fun getById(id: Int): Item? {
         if(itemsLiveData.value != null) {
             for (item in itemsLiveData.value!!) {

@@ -8,8 +8,10 @@ interface ItemDealerService {
     @GET("ResaleItems")
     fun getAllItems(): Call<List<Item>>
 
+    /*
     @GET("ResaleItems/{id}")
     fun getItemById(@Path("id") id: Int): Call<Item>
+    */
 
     @POST("ResaleItems")
     fun addItem(@Body item: Item): Call<Item>

@@ -3,14 +3,10 @@
     <string name="action_login">Login</string>
     <!-- Strings used for fragments for navigation -->
     <string name="catalog_fragment_label">Catalog Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="catalog_fragment_error"></string>
-    <string name="login_fragment_error"></string>
+    <string name="catalog_fragment_error" />
     <string name="login_fragment_label">Login</string>
     <string name="action_logout">Logout</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="item_fragment_label">Item</string>
     <string name="create_item">Create Item</string>
     <string name="cancel">Cancel</string>
@@ -19,4 +15,17 @@
     <string name="price">Price</string>
     <string name="date">Date</string>
     <string name="search">Search</string>
+    <string name="image_of_item">Image of the item for sale</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="picture_url">URL of Picture</string>
+    <string name="login_or_register_below">Login or register below</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="should_be_overwritten">This should not be seen</string>
+    <string name="seller">Seller</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
 </resources>

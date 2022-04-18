@@ -1,7 +1,6 @@
 package com.example.resale.models
 
 import com.example.resale.util.DateConverter
-import java.util.*
 
 data class Item(
     val id: Int,

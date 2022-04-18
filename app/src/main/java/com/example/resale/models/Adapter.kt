@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.resale.R
 
+@Deprecated("Use ItemAdapter instead.")
 class Adapter<T>(
     private val dataSet: List<T>,
     private val onItemClicked: (position: Int) -> Unit

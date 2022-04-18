@@ -7,10 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.resale.databinding.FragmentCatalogBinding
 import com.example.resale.databinding.FragmentItemBinding
-import com.example.resale.models.Adapter
 import com.example.resale.models.Item
 import com.example.resale.models.ItemViewModel
 import com.example.resale.util.DateConverter
@@ -27,7 +24,7 @@ class ItemFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentItemBinding.inflate(inflater, container, false)
         return binding.root
@@ -39,20 +36,20 @@ class ItemFragment : Fragment() {
         val bundle = requireArguments()
         val itemFragmentArgs: ItemFragmentArgs = ItemFragmentArgs.fromBundle(bundle)
 
-        var item = Item(itemFragmentArgs.itemId, itemFragmentArgs.itemTitle,
+        val item = Item(itemFragmentArgs.itemId, itemFragmentArgs.itemTitle,
         itemFragmentArgs.itemDescription, itemFragmentArgs.itemPrice,
         itemFragmentArgs.itemSeller, itemFragmentArgs.itemDate, itemFragmentArgs.itemPictureUrl)
 
         binding.editTextTitle.setText(item.title)
         binding.editTextDescription.setText(item.description)
         binding.editTextPrice.setText(item.price.toString())
-        binding.textViewSeller.setText(item.seller)
-        binding.textViewDate.setText(DateConverter.unixDateToJavaDate(item.date).toString())
-        binding.textViewHiddenDate.setText(item.date.toString())
+        binding.textViewSeller.text = item.seller
+        binding.textViewDate.text = DateConverter.unixDateToJavaDate(item.date).toString()
+        binding.textViewHiddenDate.text = item.date.toString()
         binding.editTextPictureUrl.setText(item.pictureUrl)
 
-        binding.buttonItemDelete.setVisibility(isOwner(item.seller))
-        binding.buttonItemUpdate.setVisibility(isOwner(item.seller))
+        binding.buttonItemDelete.visibility = isOwner(item.seller)
+        binding.buttonItemUpdate.visibility = isOwner(item.seller)
 
         binding.buttonItemDelete.setOnClickListener {
             itemViewModel.delete(item.id)

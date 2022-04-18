@@ -1,7 +1,6 @@
 package com.example.resale
 
 import android.os.Bundle
-import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -11,13 +10,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
-import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
 import com.example.resale.databinding.ActivityMainBinding
-import com.example.resale.models.ItemViewModel
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -44,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             binding.fabCreateItem.visibility = View.VISIBLE
         }
-        binding.fabCreateItem.setOnClickListener { view ->
+        binding.fabCreateItem.setOnClickListener {
             val newFragment = CreateItemDialogFragment()
             newFragment.show(supportFragmentManager, "create_item")
         }
@@ -61,9 +54,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         if(Firebase.auth.currentUser != null) {
-            login.setVisible(false)
+            login.isVisible = false
         } else {
-            logout.setVisible(false)
+            logout.isVisible = false
         }
 
         return true

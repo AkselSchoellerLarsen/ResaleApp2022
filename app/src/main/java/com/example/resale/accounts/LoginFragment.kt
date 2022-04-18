@@ -1,6 +1,5 @@
 package com.example.resale.accounts
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +21,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         auth = Firebase.auth
 
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
@@ -35,13 +34,13 @@ class LoginFragment : Fragment() {
         binding.buttonLogin.setOnClickListener {
             val email = binding.editTextEmail.text.toString()
             val password = binding.editTextPassword.text.toString()
-            signIn(email, password);
+            signIn(email, password)
 
         }
         binding.buttonRegister.setOnClickListener {
             val email = binding.editTextEmail.text.toString()
             val password = binding.editTextPassword.text.toString()
-            register(email, password);
+            register(email, password)
         }
     }
 
