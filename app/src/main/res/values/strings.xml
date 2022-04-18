@@ -14,4 +14,9 @@
     <string name="item_fragment_label">Item</string>
     <string name="create_item">Create Item</string>
     <string name="cancel">Cancel</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+    <string name="price">Price</string>
+    <string name="date">Date</string>
+    <string name="search">Search</string>
 </resources>

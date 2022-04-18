@@ -18,6 +18,7 @@ class ItemViewModel : ViewModel() {
         repository.getItems()
     }
 
+    @Deprecated("Doesn\'s work for some reason.")
     fun getById(id: Int): Item? {
         if(itemsLiveData.value != null) {
             for (item in itemsLiveData.value!!) {
